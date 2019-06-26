@@ -2,7 +2,7 @@
 // installation
 self.addEventListener("install", (event)=>{
 	event.waitUntil(
-    caches.open("restaurant-v1").then((cache)=> {
+    caches.open("restaurant-1").then((cache)=> {
 		return cache.addAll([
 			'./',
 			'./index.html',
@@ -30,7 +30,7 @@ self.addEventListener("install", (event)=>{
 self.addEventListener("fetch", (event) => {
 	event.respondWith(caches.match(event.request).then((respons) => {
 		return respons || fetch(event.request).then((response) => {
-			return caches.open("restaurant-v1").then((cache) => {
+			return caches.open("restaurant-1").then((cache) => {
 				cache.put(event.request, response.clone());
 				return response;
 			})
