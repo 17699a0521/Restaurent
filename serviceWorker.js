@@ -2,7 +2,8 @@
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("restaurant-v1").then((cache) => {
-      return cache.addAll([]);
+      return cache.addAll([
+      ]);
     })
   )
 })
